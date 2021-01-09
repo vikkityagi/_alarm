@@ -41,7 +41,7 @@ while i<no_of_cus:
         count += 1
     else:
         print('this shoe is not availale')
-        choice=input('are you purchased another shoes: ')
+        choice=input('would you like to purchase another shoes: ')
         if choice=='yes':
             pass
         elif choice=='no':
