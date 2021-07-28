@@ -1,0 +1,52 @@
+prerequisite:
+1. fistofall, you need to a eclipse ide for the java developer with latest version
+2. then you did, install the jdbc 7,8,9,....
+3. after that, you need a java jdk 11,12,13,...
+4. you need a sql server 12,13,14,15,16,...19,...
+   In the eclipse id:
+1. you create a project
+2. you attach the jdbc jar file with your class path
+3. then you need to create the class in the scr. Right click on the source button go to the properties go to the class 
+4. in your class write this code
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+or 
+import java.sql.*;
+
+
+
+public class DemoClass2 {
+
+    
+    public static void main(String[] args) throws Exception{
+    	
+        // create your connection string
+        String connectionUrl = "jdbc:sqlserver://localhost:1433;database=record;user=vikki;password=mca@2020";
+       
+        
+       
+        
+        	// here you did call the connection method
+        	Connection connection=DriverManager.getConnection(connectionUrl);
+            Statement statement = connection.createStatement();
+            // write your query
+            int rs = statement.executeUpdate(
+            "insert into students(id,name) values(104,'rachel')");
+            
+            String selectSql = "SELECT *from students";
+            ResultSet rs1 = statement.executeQuery(selectSql);
+
+            // print all records
+            while (rs1.next()) {
+                String name1 = rs1.getString("id");
+                String name2 = rs1.getString("name");
+                System.out.println(name1+" "+name2);
+              }
+            
+        
+    }
+}
