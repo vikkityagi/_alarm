@@ -1,0 +1,137 @@
+class Node:
+    def __init__(self,value):
+        self.value=value
+        self.next=None
+        # self.prev=None
+
+class SSL:
+
+    def __init__(self):
+        self.head=None
+        self.tail=None
+        self.prev=None
+        self.temp2=None
+        
+    
+    # def __iter__(self):
+    #     node=self.head
+    #     while node:
+    #         yield node
+    #         node=node.next
+
+    
+    def insertSLL(self, value, location):
+        # print('-----------------------------')
+        newNode = Node(value)
+        self.temp=self.head
+        self.temp1=self.head
+        self.temp2=self.head
+        # print('newNode',newNode)
+        # print('self.head',self.head)
+        if self.head is None:
+            print('linked list are fully empty')
+            self.head = newNode
+            self.tail = newNode
+            
+            
+        else:
+            if location==0:
+                newNode.next=self.head
+                self.head=newNode
+            elif location<0:
+                print('please enter the valid location')
+                return ''
+            else:
+                i=0
+                while i<location:
+                    self.temp1=self.temp
+                    self.temp=self.temp.next
+                    i+=1
+                    if self.temp is None:
+                        self.temp1.next=newNode
+                        break
+                newNode.next=self.temp
+                self.temp1.next=newNode
+                    # self.temp1.next=newNode
+                    # newNode.next= 
+                # pass
+            
+
+
+                
+
+                # if self.temp is None:
+                # print('i am the while loop')
+                # i=0
+                # temp=self.head
+                # self.temp2=self.head
+                # self.temp1=temp
+                # print('self.temp1',self.temp1)
+                # while i<=location:
+                #     self.temp1=temp
+                #     print('self.temp1',self.temp1)
+                #     if temp==None:
+                #         print('length of linked list:',i+1)
+                #         # temp=newNode
+                #         self.prev.next=newNode
+                #         return ''
+                #     else:
+                #         print('i',i)
+                #         self.prev=temp
+                #         print('self.prev',self.prev)
+                #         temp=temp.next
+                #         print('temp',temp)
+                #         i+=1
+                
+                #     newNode.next=self.prev
+                #     print('newNode.next',newNode.next)
+                #     self.temp1=newNode
+                    
+                #     print('self.temp1',self.temp1)
+                #     if location is 0:
+                #         self.head=newNode
+                #     # print('self.head',self.head)
+                #     else:
+                #         self.head=self.temp1
+                #     print('exit from while loop')  
+        # print('self.head',self.head) 
+        # print('self.head.next',self.head.next)
+        # print('self.head.next.next',self.head.next.next)    
+            # print('self.hself.head)
+            
+    def print(self):
+        data=self.head
+        while data is not None:
+            print(data.value," ")
+            data=data.next
+
+        
+
+    
+ssl=SSL()
+node1=Node(1)
+
+ssl.head=node1
+# print('ssl.head',ssl.head)
+node2=Node(2)
+node3=Node(3)
+ssl.head.next=node2
+# print('ssl.head.next',ssl.head.next)
+tail=node2.next=node3
+
+# print('ssl.head',ssl.head)
+# print('ssl.head.next',ssl.head.next)
+# print('node1.next',node1.next)
+# print('tail',tail)
+# print('ssl.head.next.next',ssl.head.next.next)
+ssl.insertSLL(2.8,2)
+ssl.insertSLL(0,0)
+ssl.insertSLL(0.8,1)
+ssl.insertSLL(0.5,1)
+ssl.insertSLL(0.09,0)
+ssl.insertSLL(7,-1)
+ssl.insertSLL(6,42)
+ssl.insertSLL(7,45)
+
+# ssl.insertSLL(2.7,3)
+ssl.print()
